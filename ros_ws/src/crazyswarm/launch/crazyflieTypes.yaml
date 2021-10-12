@@ -171,10 +171,10 @@ dynamicsConfigurations:
     maxXVelocity: 10.0
     maxYVelocity: 10.0
     maxZVelocity: 10.0
-    maxPitchRate: 20.0
-    maxRollRate: 20.0
-    maxYawRate: 10.0
-    maxRoll: 1.4
-    maxPitch: 1.4
-    maxFitnessScore: 0.001
+    maxPitchRate: 40.0
+    maxRollRate: 40.0
+    maxYawRate: 40.0
+    maxRoll: 4.0
+    maxPitch: 4.0
+    maxFitnessScore: 0.003
 
