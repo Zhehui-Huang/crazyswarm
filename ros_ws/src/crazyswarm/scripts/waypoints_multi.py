@@ -4,9 +4,9 @@ import numpy as np
 from pycrazyswarm import Crazyswarm
 
 
-Z = 1.0
+Z = 2.0
 TAKEOFF_DURATION = 3.0
-GOTO_DURATION = 3.0
+GOTO_DURATION = 2.0
 # WAYPOINTS = np.array([
 #     (3.0, 0.0, Z),
 #     (3.0, 3.0, Z),
@@ -25,11 +25,11 @@ if __name__ == '__main__':
     timeHelper = swarm.timeHelper
     allcfs = swarm.allcfs
     # ids = [7, 12, 11, 10]
-    ids = [17, 20, 33, 41]
+    ids = [3, 17, 20, 27]
     cfs = [allcfs.crazyfliesById[i] for i in ids]
 
     print("Taking off..\n")
-    allcfs.takeoff(targetHeight=2.0, duration=2.5)
+    allcfs.takeoff(targetHeight=2.0, duration=2.0)
     timeHelper.sleep(TAKEOFF_DURATION + 1.0)
 
     print("Moving...\n")
@@ -39,7 +39,5 @@ if __name__ == '__main__':
         timeHelper.sleep(GOTO_DURATION + 1.0)
 
     print("Landing..\n")
-    cf.land(targetHeight=0.0, duration=TAKEOFF_DURATION + 2.0)
-    timeHelper.sleep(TAKEOFF_DURATION + 1.0)
-    cf.land(targetHeight=0.0, duration=TAKEOFF_DURATION + 2.0)
+    allcfs.land(targetHeight=0.0, duration=TAKEOFF_DURATION + 2.0)
     timeHelper.sleep(TAKEOFF_DURATION + 1.0)

@@ -18,6 +18,10 @@
       # genericLogTopic_log1_Variables: ["stateEstimate.roll", "ctrlMel.rolld"]
       # genericLogTopic_log1_Variables: ["ctrlStat.edist"]
       # genericLogTopic_log1_Variables: ["stateEstimate.y", "ctrltarget.y", "ctrlNN.in1"]
+      # genericLogTopic_log1_Variables: ["ctrlNN.motor1", "ctrlNN.pwm0", "pwm.m1_pwm", "pwm.maxThrust"]
+      # genericLogTopic_log1_Variables: ["controller.nPos0", "controller.nPos1"]
+      genericLogTopic_log1_Variables: ["ctrlNN.posX", "ctrlNN.posY", "ctrlNN.posZ"]
+      # genericLogTopic_log1_Variables: ["ctrlNN.isStale"]
       # genericLogTopic_log1_Variables: ["ctrlNN.in15", "ctrlNN.in16", "ctrlNN.in17", "ctrlNN.out0"]
       # genericLogTopic_log1_Variables: ["motor.m1", "motor.m2", "motor.m3", "motor.m4"]
       # genericLogTopic_log1_Variables: ["ctrltarget.x", "ctrltarget.y", "ctrltarget.z", "stateEstimate.x", "stateEstimate.y", "stateEstimate.z"]
@@ -31,7 +35,7 @@
           enHighLevel: 1
         ctrlNN:
           max_thrust: 1 #0.8 # 1.0 # 0.7
-          rel_vel: 1
+          rel_vel: 0
           rel_omega: 0
           rel_xyz: 0
           freq: 500
@@ -52,6 +56,8 @@
           extQuatStdDev: 0.5e-1
         kalman:
           resetEstimation: 1
+        colAv:
+          enable: 0
       # tracking
       motion_capture_type: "vicon" # one of none,vicon,optitrack,qualisys,vrpn
       object_tracking_type: "libobjecttracker" # one of motionCapture,libobjecttracker
@@ -85,6 +91,8 @@
   <!-- <node pkg="rqt_plot" type="rqt_plot" name="t2t" args="/cf33/log1/values[1]"/> -->
   <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_roll" args="/cf2/log1/values[0] /cf2/log1/values[1] /cf2/log1/values[2] /cf2/log1/values[3]"/> -->
   <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_roll2" args="/cf2/log1/values[3] /cf2/log1/values[4] /cf2/log1/values[5]"/> -->
-  <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_pitch" args="/cf45/log1/values[3] /cf45/log1/values[4] /cf45/log1/values[5]"/> -->
+<!--   <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_pitch" args="/cf3/log1/values[0] /cf3/log1/values[4] /cf45/log1/values[5]"/> -->
+<!--   <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_obst_obs" args="/cf2/log1/values[0] /cf2/log1/values[1]"/> -->
+
 
 </launch>

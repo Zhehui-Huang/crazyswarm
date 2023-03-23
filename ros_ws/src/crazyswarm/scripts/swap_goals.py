@@ -10,9 +10,9 @@ if __name__ == '__main__':
     allcfs = swarm.allcfs
     cf_array = allcfs.crazyflies
 
-    Z = 1.5
-    # ids = [3, 17, 20, 27, 28, 33, 41, 47]
-    ids = [3, 28]
+    Z = 1.0
+    ids = [3, 17, 20, 27, 33, 28, 47, 41]
+    # ids = [3, 33]
     team1 = [allcfs.crazyfliesById[i] for i in ids[:len(ids)/2]]
     team2 = [allcfs.crazyfliesById[i] for i in ids[len(ids)/2:]]
 
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     print("Taking off...\n")
     allcfs.takeoff(targetHeight=Z, duration=3.0)
-    timeHelper.sleep(3.0)
+    timeHelper.sleep(4.0)
 
     print("Swapping...\n")
     for cf1, cf2, init_pos1, init_pos2 in zip(team1, team2, init_poses1, init_poses2):

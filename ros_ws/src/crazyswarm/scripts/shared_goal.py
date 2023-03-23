@@ -10,8 +10,8 @@ if __name__ == '__main__':
     allcfs = swarm.allcfs
     cf_array = allcfs.crazyflies
 
-    z = 2.0
-    ids = [3, 17, 41, 47]
+    z = 1.0
+    ids = [2]
     cfs = [allcfs.crazyfliesById[i] for i in ids]
 
     # init_pos = {33: np.array([0., 1., z]),
@@ -26,8 +26,9 @@ if __name__ == '__main__':
 
     print("Moving to shared goal...\n")
     for cf in cfs:
-        cf.goTo(goal=np.array([0., 0., z]), yaw=0.0, duration=2.0)
-    timeHelper.sleep(10.0)
+        cf.goTo(goal=np.array([1., 0., z]), yaw=0.0, duration=3.0)
+        timeHelper.sleep(3.0)
+    timeHelper.sleep(7.0)
 
     print("Returning...\n")
     # for _ in range(60):

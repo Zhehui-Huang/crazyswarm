@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from pycrazyswarm import *
 from scipy.spatial import distance
 
-def pos_from_circle(num_agents, radius, center=(0., 0.), Z=1.5):
+def pos_from_circle(num_agents, radius, center=(0., 0.), Z=2.0):
     pts = []
     x0, y0 = center
     for i in range(num_agents):
@@ -15,6 +15,22 @@ def pos_from_circle(num_agents, radius, center=(0., 0.), Z=1.5):
         pts.append(np.array([x_i, y_i, Z]))
 
     return pts
+
+def grid_eight_drones(Z=2.0):
+    pts = []
+    rows, cols = 3, 3
+    num_agents = 8
+    x, y = 1.0, 1.0 # start from top-left, move to bottom-right
+    # pts.append(np.array([x, y, Z]))
+    x_pts = [1.5, 0, -1.5]
+    y_pts = [1.5, 0, -1.5]
+    for x in x_pts:
+        for y in y_pts:
+            if num_agents > 0:
+                pts.append(np.array([x, y, Z]))
+            num_agents -= 1
+    return pts
+
 
 
 if __name__ == '__main__':
@@ -30,6 +46,12 @@ if __name__ == '__main__':
 
     print("Taking off...\n")
     allcfs.takeoff(targetHeight=Z, duration=3.0)
+    timeHelper.sleep(6.0)
+
+    # grid formation in x-y plane
+    pts = grid_eight_drones()
+    for cf, pt in zip(cfs, pts):
+        cf.goTo(goal=pt, yaw=0, duration=3.0)
     timeHelper.sleep(6.0)
 
     # circular formation in the x-y plane

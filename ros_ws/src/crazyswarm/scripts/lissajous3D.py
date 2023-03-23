@@ -22,7 +22,7 @@ if __name__  == '__main__':
     allcfs = swarm.allcfs
     cf_array = allcfs.crazyflies
     # ids = [3, 17, 20, 27, 28, 33, 41, 47]
-    ids = [3, 17, 41, 47]
+    ids = [20, 28, 33, 47]
     cfs = [allcfs.crazyfliesById[id] for id in ids]
 
     Z = 2.0
@@ -36,7 +36,7 @@ if __name__  == '__main__':
     goal = np.array([0, 0, 2])
     points = []
 
-    for t in np.arange(0, 4 * np.pi, 0.10):
+    for t in np.arange(0, 3 * np.pi, 0.07):
         # goal = get_new_goal(iter=t, prev_goal=goal, steps=steps)
         x,y,z = lissajous3D(t)
         goal = np.array([x, y, z])
@@ -63,10 +63,10 @@ if __name__  == '__main__':
     timeHelper.sleep(2.0)
 
     print("landing")
-    # manually land over 3 seconds
-    for _ in range(30):
+    # manually land over 5 seconds
+    for _ in range(50):
         for i, cfid in enumerate(ids):
             curPos = init_poses[i]
-            curPos -= np.array([0., 0., 0.03])
+            curPos -= np.array([0., 0., 0.05])
             allcfs.crazyfliesById[cfid].cmdPosition(curPos)
         timeHelper.sleep(0.1)
