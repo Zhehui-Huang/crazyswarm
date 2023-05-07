@@ -1,6 +1,6 @@
 [submodule "crazyflie-firmware"]
 	path = crazyflie-firmware
-	url = https://github.com/SumeetBatra/crazyflie-firmware-nn.git
+	url = https://github.com/Zhehui-Huang/crazyflie-firmware-nn.git
 	branch = neighbor_obs
 [submodule "ros_ws/src/externalDependencies/libobjecttracker"]
 	path = ros_ws/src/externalDependencies/libobjecttracker
